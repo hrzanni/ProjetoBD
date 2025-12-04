@@ -54,7 +54,7 @@ A interação com o sistema ocorre através de um menu principal numérico, proj
 
 Opção 1 (Cadastrar): O sistema solicitará sequencialmente o Serial, a Capacidade e o Tipo. Basta digitar os valores e confirmar.
 
-Opção 2 (Monitorar): O sistema exibe instantaneamente a tabela de status atualizada e aguarda uma confirmação para retornar ao menu.
+Opção 2 (Monitorar):  Painel gerencial que unifica dados de toda a frota (via LEFT JOIN), exibindo inclusive equipamentos sem sensores. Implementa regras de negócio visuais, marcando automaticamente como [CRÍTICO!] os contêineres com ocupação superior a 80%.
 
 Opção 3 (Consultar com Filtro): Ao selecionar esta opção, um submenu será aberto perguntando qual critério de filtro você deseja usar. Selecione o critério e, em seguida, digite o valor de busca (ex: digitar "CONT-100" para buscar pelo serial).
 
