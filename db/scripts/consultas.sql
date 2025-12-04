@@ -1,3 +1,6 @@
+-- Esta consulta identifica os motoristas que já passaram por absolutamente todas as rotas cadastradas no sistema.
+-- Objetivo: Listar motoristas cuja contagem de rotas distintas percorridas é igual à contagem total de rotas existentes na tabela Rota. 
+
 SELECT    
        m.Nome AS Nome_Motorista, m.CPF, 
        COUNT(DISTINCT v.Rota_Codigo) AS Qtd_Rotas_Distintas_Percorridas 
@@ -6,7 +9,8 @@ JOIN ViagemDeColeta v ON m.CPF = v.Motorista_CPF
 GROUP BY m.CPF, m.Nome 
 HAVING COUNT(DISTINCT v.Rota_Codigo) = (SELECT COUNT(*) FROM Rota);
 
-
+-- Esta consulta gera um painel geral mostrando a última vez que cada sensor comunicou dados e qual foi o nível reportado.
+-- Objetivo: Mostrar todos os sensores instalados, a data da última leitura e o nível de enchimento, tratando casos onde não houve leitura.
 
 SELECT 
     s.Conteiner_NumSerie,
@@ -22,8 +26,8 @@ LEFT JOIN
 GROUP BY s.Conteiner_NumSerie, s.DataInstalacao
 ORDER BY s.DataInstalacao;
 
-
-
+-- Esta consulta cria um ranking de performance para os caminhões, baseando-se na média de peso coletado por viagem.
+-- Objetivo: Classificar veículos que transportam mais carga em média, considerando apenas viagens concluídas.
 
 SELECT 
         v.Modelo, v.Placa, 
@@ -33,7 +37,8 @@ FROM Veiculo v
 JOIN ViagemDeColeta vc ON v.Placa = vc.Veiculo_Placa 
 WHERE vc.Status = 'CONCLUIDA' GROUP BY v.Placa, v.Modelo;
 
-
+-- Esta é uma consulta de monitoramento crítico. Ela busca apenas o estado atual do container, ignorando históricos antigos de quando ele estava cheio no passado.
+-- Objetivo: Listar containers que, em sua leitura mais recente, apresentaram mais de 80% de ocupação.
 
 SELECT 
     l1.Conteiner_NumSerie,
@@ -49,7 +54,8 @@ WHERE
         WHERE l2.Conteiner_NumSerie = l1.Conteiner_NumSerie
     );
 
-
+-- Esta consulta serve para análise gerencial e tomada de decisão estratégica sobre alocação de recursos.
+-- Objetivo: Agrupar os dados por região geográfica e categorizá-las (Alta, Média ou Baixa demanda) com base no volume total de lixo coletado.
 
 SELECT 
 r.Regiao, 

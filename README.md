@@ -1,5 +1,21 @@
 ## Instalação
 
+## Estrutura do projeto
+
+.
+├── db/
+│ ├── init/ # Scripts de inicialização automática do banco
+│ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers
+│ │ └── 02_dados.sql # Inserção de dados de teste (DML)
+│ └── scripts/ # Scripts auxiliares e consultas
+│ └── consultas.sql # As 5 consultas complexas do projeto
+├── .dockerignore
+├── .gitignore
+├── docker-compose.yml # Orquestração dos containers (App + Banco)
+├── Makefile # Automação de comandos (ex: make run, make clean)
+├── README.md # Documentação do projeto
+└── server.py # Código fonte da aplicação Python (Entrypoint)
+
 ### Requisitos
 
 Antes de iniciar, certifique-se de ter as seguintes versões instaladas:
@@ -48,8 +64,25 @@ Precisamos instalar a biblioteca psycopg
 pip install psycopg2-binary   # Instalar a biblioteca psycopg2
 ```
 
-Agora rodar rodar a aplicação
+Agora basta rodar a aplicação
+
+```bash
 python3 server.py
+```
+
+Além disso, outra maneira de fazer consultas que não estão listadas na aplicação python é através do **psql**
+
+Após rodar o comando "make dev" e aparecer "database system is ready to accept connections"
+
+Podemos abrir um terminar bash e rodar esse comando
+
+```bash
+psql -h localhost -p 5555 -U postgres -d Projeto_DB
+```
+
+Vai pedir a senha do postgres, basta colocar 123 e apertar Enter que vai estar conectado ao banco de dados
+
+E agora só rodar as consultas, que disponibilizamos no arquivo consultas.sql
 
 ## Guia de Navegação
 
