@@ -22,7 +22,9 @@ INSERT INTO Sensor (Conteiner_NumSerie, DataInstalacao) VALUES
 ('CONT-003', '2024-02-10'),
 ('CONT-004', '2024-02-15'),
 ('CONT-005', '2024-03-25'),
-('CONT-006', '2024-04-05');
+('CONT-006', '2024-04-05'),
+('CONT-007', '2024-05-10'),
+('CONT-008', '2024-05-12');
 
 -- 3. LEITURA
 INSERT INTO Leitura (DataHora, Conteiner_NumSerie, PorcentagemEnchimento) VALUES 
@@ -88,13 +90,24 @@ INSERT INTO Veiculo (Placa, Modelo, Disponibilidade, PesoCapacidadeReciclavel, P
 ('JKL-3456', 'Scania P310', TRUE, 6500.0, 8500.0);
 
 -- 11. VIAGEM DE COLETA
+-- Viagem 1: Concluída (Libera recursos ao final, mas como já começa concluída, o trigger não trava)
 INSERT INTO ViagemDeColeta (DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
 VALUES ('2024-11-29 06:00:00', '2024-11-29 10:30:00', 'ABC-1234', '123.456.789-00', 1, 3200.5, 'CONCLUIDA');
+
+-- Viagem 2: EM CURSO (O TRIGGER VAI TRAVAR O VEÍCULO DEF-5678 E O MOTORISTA 234...)
 INSERT INTO ViagemDeColeta (DataHoraInicio, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
 VALUES ('2024-11-29 07:30:00', 'DEF-5678', '234.567.890-11', 2, 4100.0, 'EM_CURSO');
+
+-- Viagem 3: Planejada (Não trava recursos)
 INSERT INTO ViagemDeColeta (DataHoraInicio, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
 VALUES ('2024-11-30 06:00:00', 'ABC-1234', '123.456.789-00', 3, 0.0, 'PLANEJADA');
+
+-- Viagem 4
+-- Trocamos o veículo para 'JKL-3456' porque o 'DEF-5678' ainda está preso na viagem EM_CURSO acima.
+-- Trocamos o motorista para '456...' (Ana) porque a Maria (234...) está presa na viagem acima.
 INSERT INTO ViagemDeColeta (DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
-VALUES ('2024-12-01 06:30:00', '2024-12-01 11:00:00', 'DEF-5678', '456.789.012-33', 1, 3500.0, 'CONCLUIDA');
+VALUES ('2024-12-01 06:30:00', '2024-12-01 11:00:00', 'JKL-3456', '456.789.012-33', 1, 3500.0, 'CONCLUIDA');
+
+-- Viagem 5: Planejada (Reutilizando João e ABC que estão livres)
 INSERT INTO ViagemDeColeta (DataHoraInicio, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
-VALUES ('2024-12-02 07:00:00', 'JKL-3456', '123.456.789-00', 4, 0.0, 'PLANEJADA');
+VALUES ('2024-12-02 07:00:00', 'ABC-1234', '123.456.789-00', 4, 0.0, 'PLANEJADA');
