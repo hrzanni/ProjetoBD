@@ -9,10 +9,10 @@ import re
 # =============================================================================
 DB_CONFIG = {
     "host": "localhost",
-    "database": "Projeto_BD",  
+    "database": "Projeto_DB",  
     "user": "postgres",
     "password": "123",  # ATENÇÃO: Altere para a senha do seu PostgreSQL
-    "port": "5432"
+    "port": "5555"
 }
 
 # =============================================================================
