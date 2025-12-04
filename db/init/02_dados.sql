@@ -53,11 +53,14 @@ INSERT INTO CentroDeDespejo (Rua, Numero, CEP, TipoCentro) VALUES
 ('Rua do Hipódromo', 500, '03051-000', 'ECOPONTO');
 
 -- 6. ROTA
-INSERT INTO Rota (Regiao) VALUES 
-('Centro'),
-('Zona Sul'),
-('Zona Oeste'),
-('Zona Leste');
+INSERT INTO Rota (Regiao, Descricao) VALUES 
+('Centro', 'Rota de alta densidade comercial e financeira (Av. Paulista/Augusta). Abrange áreas com restrição de circulação de caminhões pesados, exigindo coleta preferencialmente noturna e foco em recicláveis de escritório.'),
+
+('Zona Sul', 'Circuito misto residencial de alto padrão e gastronômico. Foco em grandes condomínios verticais e corredores de restaurantes. Gera alto volume de resíduos orgânicos e requer veículos com compactação eficiente.'),
+
+('Zona Oeste', 'Corredor corporativo e universitário (região da Faria Lima). Rota caracterizada pela geração de resíduos secos e eletrônicos. Coleta programada para horários de vale para evitar congestionamentos nas vias arteriais.'),
+
+('Zona Leste', 'Área de expansão com predominância de comércio popular e pequenas indústrias. Rota extensa que demanda otimização logística para economia de combustível, cobrindo pontos dispersos de descarte irregular.');
 
 -- 7. PONTOS DA ROTA
 INSERT INTO PontosDaRota (Rota_Codigo, PontoColeta_ID, NroSequencia) VALUES 
