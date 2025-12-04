@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:17
+    container_name: projeto_bd
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: Projeto_DB
+    ports:
+      - "5555:5432"
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
