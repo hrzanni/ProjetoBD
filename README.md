@@ -48,7 +48,8 @@ make dev
 ```
 
 2. Resetar o banco de dados (Soft Clean)
-   Esse comando remove os dados persistidos no volume e reinicia os containers:
+
+Esse comando remove os dados persistidos no volume e reinicia os containers:
 
 ```bash
 # Remove dados do banco e reinicia os containers
