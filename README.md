@@ -52,7 +52,6 @@ make dev
 Esse comando remove os dados persistidos no volume e reinicia os containers:
 
 ```bash
-# Remove dados do banco e reinicia os containers
 make soft-clean
 ```
 
@@ -92,7 +91,7 @@ database system is ready to accept connections
 Então abra um terminal `bash` e execute:
 
 ```bash
-psql` -h localhost -p 5555 -U postgres -d Projeto_DB
+psql -h localhost -p 5555 -U postgres -d Projeto_DB
 ```
 
 A senha padrão é:
@@ -103,7 +102,7 @@ A senha padrão é:
 
 Após entrar no PostgreSQL, você pode rodar quaisquer consultas desejadas — incluindo as que deixamos no arquivo consultas.sql.
 
-## Guia de Navegação
+## Guia de Navegação na aplicação python
 
 A interação com o sistema ocorre através de um menu principal numérico, projetado para ser simples e cíclico. Veja como navegar:
 
