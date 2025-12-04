@@ -58,6 +58,6 @@ Opção 2 (Monitorar):  Painel gerencial que unifica dados de toda a frota (via 
 
 Opção 3 (Consultar com Filtro): Ao selecionar esta opção, um submenu será aberto perguntando qual critério de filtro você deseja usar. Selecione o critério e, em seguida, digite o valor de busca (ex: digitar "CONT-100" para buscar pelo serial).
 
-**Retorno ao Menu:** Após a conclusão de qualquer operação (seja um cadastro bem-sucedido ou a visualização de uma consulta), o sistema pausa a execução e exibe a mensagem "Pressione <ENTER> para continuar...". Ao pressionar a tecla, a tela é limpa e o menu principal é recarregado.
+**Retorno ao Menu:** Após a conclusão de qualquer operação (seja um cadastro bem-sucedido ou a visualização de uma consulta), o sistema pausa a execução e exibe a mensagem "Pressione **ENTER** para continuar...". Ao pressionar a tecla, a tela é limpa e o menu principal é recarregado.
 
 **Encerrando:** Para fechar a conexão com o banco de dados de forma segura e sair da aplicação, selecione a Opção 4 (Sair) no menu principal.
