@@ -2,18 +2,20 @@
 
 ## Estrutura do projeto
 
-├── db/  
-│ ├── init/ # Scripts de inicialização automática do banco  
-│ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers  
-│ │ └── 02_dados.sql # Inserção de dados de teste (DML)  
-│ └── scripts/ # Scripts auxiliares e consultas  
-│ └── consultas.sql # As 5 consultas complexas do projeto  
-├── .dockerignore  
-├── .gitignore  
-├── docker-compose.yml # Orquestração dos containers (App + Banco)  
-├── Makefile # Automação de comandos (ex: make run, make clean)  
-├── README.md # Documentação do projeto  
+```text
+├── db/
+│ ├── init/ # Scripts de inicialização automática do banco
+│ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers
+│ │ └── 02_dados.sql # Inserção de dados de teste (DML)
+│ └── scripts/ # Scripts auxiliares e consultas
+│ └── consultas.sql # As 5 consultas complexas do projeto
+├── .dockerignore
+├── .gitignore
+├── docker-compose.yml # Orquestração dos containers (App + Banco)
+├── Makefile # Automação de comandos (ex: make run, make clean)
+├── README.md # Documentação do projeto
 └── server.py # Código fonte da aplicação Python (Entrypoint)
+```
 
 ### Requisitos
 
@@ -33,9 +35,11 @@ make --version
 python3 --version
 ```
 
+## Como rodar a aplicação
+
 ### Usando Make (Recomendado)
 
-O projeto inclui um `Makefile` com comandos simplificados:
+O projeto inclui um `Makefile` com comandos que simplificam o fluxo de desenvolvimento.
 
 1. Iniciar a aplicação em modo desenvolvimento:
 
@@ -43,45 +47,60 @@ O projeto inclui um `Makefile` com comandos simplificados:
 make dev
 ```
 
-Caso queira reiniciar os dados do banco você deve usar o comando soft-clean
+2. Resetar o banco de dados (Soft Clean)
+   Esse comando remove os dados persistidos no volume e reinicia os containers:
 
 ```bash
 # Remove dados do banco e reinicia os containers
 make soft-clean
 ```
 
-Agora você deve criar um ambiente virtual para rodar a aplicação python
+## Configurando o Ambiente Virtual Python
+
+Após iniciar os containers, crie um ambiente virtual para rodar a aplicação Python:
 
 ```bash
 python3 -m venv venv          # Criação do ambiente virtual
 source venv/bin/activate      # Ativar o ambiente virtual
 ```
 
-Precisamos instalar a biblioteca psycopg
+Instalar dependências necessárias
 
 ```bash
 pip install psycopg2-binary   # Instalar a biblioteca psycopg2
 ```
 
-Agora basta rodar a aplicação
+## Executando a Aplicação
+
+Com o ambiente virtual ativado, basta rodar:
 
 ```bash
 python3 server.py
 ```
 
-Além disso, outra maneira de fazer consultas que não estão listadas na aplicação python é através do **psql**
+## Realizando consultas direto no PostgreSQL (via psql)
 
-Após rodar o comando "make dev" e aparecer "database system is ready to accept connections"
+Além da interface Python, você também pode consultar o banco diretamente usando psql.
 
-Podemos abrir um terminar bash e rodar esse comando
+Após rodar `make dev`, aguarde a mensagem no container:
 
 ```bash
-psql -h localhost -p 5555 -U postgres -d Projeto_DB
+database system is ready to accept connections
 ```
 
-Vai pedir a senha do postgres, basta colocar 123 e apertar Enter que vai estar conectado ao banco de dados
+Então abra um terminal `bash` e execute:
 
-E agora só rodar as consultas, que disponibilizamos no arquivo consultas.sql
+```bash
+psql` -h localhost -p 5555 -U postgres -d Projeto_DB
+```
+
+A senha padrão é:
+
+```bash
+123
+```
+
+Após entrar no PostgreSQL, você pode rodar quaisquer consultas desejadas — incluindo as que deixamos no arquivo consultas.sql.
 
 ## Guia de Navegação
 
