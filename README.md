@@ -50,7 +50,7 @@ A interação com o sistema ocorre através de um menu principal numérico, proj
 
 **Acesso Inicial:** Ao executar o script (python app.py), o usuário é recebido pelo menu principal contendo as quatro opções operacionais.
 
-**Seleção de Operações:** Para acessar uma funcionalidade, digite o número correspondente (1, 2, 3 ou 4) e pressione <ENTER>.
+**Seleção de Operações:** Para acessar uma funcionalidade, digite o número correspondente (1, 2, 3 ou 4) e pressione **ENTER**.
 
 Opção 1 (Cadastrar): O sistema solicitará sequencialmente o Serial, a Capacidade e o Tipo. Basta digitar os valores e confirmar.
 
