@@ -18,9 +18,7 @@ DB_CONFIG = {
 # =============================================================================
 # FUNÇÕES UTILITÁRIAS
 # =============================================================================
-def limpar_tela():
-    """Limpa o terminal para melhorar a usabilidade (Windows/Linux/Mac)."""
-    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def pausar():
     """Pausa a execução até o usuário pressionar Enter."""
@@ -44,7 +42,6 @@ def cadastrar_conteiner(conn):
     Solicita dados ao usuário e insere um novo contêiner no banco.
     Inclui validação de Regex e tratamento de erros de integridade.
     """
-    limpar_tela()
     print("=== CADASTRO DE NOVO CONTÊINER ===")
     
     # Validação do Número de Série
@@ -118,7 +115,6 @@ def consultar_monitoramento(conn):
     """
     Relatório gerencial com JOINs para mostrar status e alertas de nível crítico.
     """
-    limpar_tela()
     print("=== MONITORAMENTO DE CONTÊINERES (DASHBOARD) ===")
     
     try:
@@ -190,7 +186,6 @@ def consultar_com_filtro(conn):
     Permite filtrar contêineres por Tipo, Capacidade ou Número de Série.
     Usa 'Prepared Statements' (%s) para segurança.
     """
-    limpar_tela()
     print("=== CONSULTA PARAMETRIZADA ===")
     print("Escolha o critério de filtro:")
     print("1 - Filtrar por Tipo de Resíduo")
@@ -282,7 +277,6 @@ def main():
         sys.exit(1)
 
     while True:
-        limpar_tela()
         print("=== SISTEMA DE GESTÃO DE RESÍDUOS SÓLIDOS ===")
         print("1. Cadastrar Novo Contêiner")
         print("2. Consultar Monitoramento (Dashboard Geral)")

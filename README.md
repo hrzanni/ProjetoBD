@@ -40,9 +40,16 @@ Agora você deve criar um ambiente virtual para rodar a aplicação python
 ```bash
 python3 -m venv venv          # Criação do ambiente virtual
 source venv/bin/activate      # Ativar o ambiente virtual
-pip install psycopg2-binary   # Instalar a biblioteca psycopg2
-python3 server.py
 ```
+
+Precisamos instalar a biblioteca psycopg
+
+```bash
+pip install psycopg2-binary   # Instalar a biblioteca psycopg2
+```
+
+Agora rodar rodar a aplicação
+python3 server.py
 
 ## Guia de Navegação
 
@@ -54,7 +61,7 @@ A interação com o sistema ocorre através de um menu principal numérico, proj
 
 Opção 1 (Cadastrar): O sistema solicitará sequencialmente o Serial, a Capacidade e o Tipo. Basta digitar os valores e confirmar.
 
-Opção 2 (Monitorar):  Painel gerencial que unifica dados de toda a frota (via LEFT JOIN), exibindo inclusive equipamentos sem sensores. Implementa regras de negócio visuais, marcando automaticamente como [CRÍTICO!] os contêineres com ocupação superior a 80%.
+Opção 2 (Monitorar): Painel gerencial que unifica dados de toda a frota (via LEFT JOIN), exibindo inclusive equipamentos sem sensores. Implementa regras de negócio visuais, marcando automaticamente como [CRÍTICO!] os contêineres com ocupação superior a 80%.
 
 Opção 3 (Consultar com Filtro): Ao selecionar esta opção, um submenu será aberto perguntando qual critério de filtro você deseja usar. Selecione o critério e, em seguida, digite o valor de busca (ex: digitar "CONT-100" para buscar pelo serial).
 

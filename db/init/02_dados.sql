@@ -113,4 +113,27 @@ VALUES ('2024-12-01 06:30:00', '2024-12-01 11:00:00', 'JKL-3456', '456.789.012-3
 
 -- Viagem 5: Planejada (Reutilizando João e ABC que estão livres)
 INSERT INTO ViagemDeColeta (DataHoraInicio, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
-VALUES ('2024-12-02 07:00:00', 'ABC-1234', '123.456.789-00', 4, 0.0, 'PLANEJADA');
+VALUES 
+('2024-12-02 07:00:00', 'ABC-1234', '123.456.789-00', 4, 0.0, 'PLANEJADA');
+
+INSERT INTO ViagemDeColeta 
+(DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
+VALUES 
+('2024-11-28 07:00:00', '2024-11-28 12:00:00', 'ABC-1234', '123.456.789-00', 2, 3800.0, 'CONCLUIDA');
+-- Viagem Extra 1: Rota 2 (Zona Sul)
+INSERT INTO ViagemDeColeta 
+(DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
+VALUES 
+('2024-12-03 07:00:00', '2024-12-03 13:00:00', 'JKL-3456', '456.789.012-33', 2, 4200.0, 'CONCLUIDA');
+
+-- Viagem Extra 2: Rota 3 (Zona Oeste)
+INSERT INTO ViagemDeColeta 
+(DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
+VALUES 
+('2024-12-04 08:00:00', '2024-12-04 14:30:00', 'JKL-3456', '456.789.012-33', 3, 3100.0, 'CONCLUIDA');
+
+-- Viagem Extra 3: Rota 4 (Zona Leste)
+INSERT INTO ViagemDeColeta 
+(DataHoraInicio, DataHoraFim, Veiculo_Placa, Motorista_CPF, Rota_Codigo, PesoColetado, Status) 
+VALUES 
+('2024-12-05 06:00:00', '2024-12-05 12:00:00', 'JKL-3456', '456.789.012-33', 4, 5100.0, 'CONCLUIDA');
