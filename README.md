@@ -3,17 +3,17 @@
 ## Estrutura do projeto
 
 .
-├── db/
-│ ├── init/ # Scripts de inicialização automática do banco
-│ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers
-│ │ └── 02_dados.sql # Inserção de dados de teste (DML)
-│ └── scripts/ # Scripts auxiliares e consultas
-│ └── consultas.sql # As 5 consultas complexas do projeto
-├── .dockerignore
-├── .gitignore
-├── docker-compose.yml # Orquestração dos containers (App + Banco)
-├── Makefile # Automação de comandos (ex: make run, make clean)
-├── README.md # Documentação do projeto
+├── db/  
+│ ├── init/ # Scripts de inicialização automática do banco  
+│ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers  
+│ │ └── 02_dados.sql # Inserção de dados de teste (DML)  
+│ └── scripts/ # Scripts auxiliares e consultas  
+│ └── consultas.sql # As 5 consultas complexas do projeto  
+├── .dockerignore  
+├── .gitignore  
+├── docker-compose.yml # Orquestração dos containers (App + Banco)  
+├── Makefile # Automação de comandos (ex: make run, make clean)  
+├── README.md # Documentação do projeto  
 └── server.py # Código fonte da aplicação Python (Entrypoint)
 
 ### Requisitos
