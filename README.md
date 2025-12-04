@@ -43,3 +43,21 @@ source venv/bin/activate      # Ativar o ambiente virtual
 pip install psycopg2-binary   # Instalar a biblioteca psycopg2
 python3 server.py
 ```
+
+## Guia de Navegação
+
+A interação com o sistema ocorre através de um menu principal numérico, projetado para ser simples e cíclico. Veja como navegar:
+
+**Acesso Inicial:** Ao executar o script (python app.py), o usuário é recebido pelo menu principal contendo as quatro opções operacionais.
+
+**Seleção de Operações:** Para acessar uma funcionalidade, digite o número correspondente (1, 2, 3 ou 4) e pressione <ENTER>.
+
+Opção 1 (Cadastrar): O sistema solicitará sequencialmente o Serial, a Capacidade e o Tipo. Basta digitar os valores e confirmar.
+
+Opção 2 (Monitorar): O sistema exibe instantaneamente a tabela de status atualizada e aguarda uma confirmação para retornar ao menu.
+
+Opção 3 (Consultar com Filtro): Ao selecionar esta opção, um submenu será aberto perguntando qual critério de filtro você deseja usar. Selecione o critério e, em seguida, digite o valor de busca (ex: digitar "CONT-100" para buscar pelo serial).
+
+**Retorno ao Menu:** Após a conclusão de qualquer operação (seja um cadastro bem-sucedido ou a visualização de uma consulta), o sistema pausa a execução e exibe a mensagem "Pressione <ENTER> para continuar...". Ao pressionar a tecla, a tela é limpa e o menu principal é recarregado.
+
+**Encerrando:** Para fechar a conexão com o banco de dados de forma segura e sair da aplicação, selecione a Opção 4 (Sair) no menu principal.
