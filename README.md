@@ -2,7 +2,6 @@
 
 ## Estrutura do projeto
 
-.
 ├── db/  
 │ ├── init/ # Scripts de inicialização automática do banco  
 │ │ ├── 01_esquema.sql # Estrutura das tabelas (DDL) e Triggers  
